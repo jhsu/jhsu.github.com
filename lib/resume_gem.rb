@@ -1,10 +1,6 @@
 require 'rubygems'
-require 'maruku'
-require 'rdiscount'
-require 'launchy'
-require 'fileutils'
-require 'less'
-require 'erubis'
+require 'bundler'
+Bundler.require(:default)
 
 class Resume
 

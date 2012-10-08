@@ -1,5 +1,4 @@
- 
-## Just run the application
-require 'resume'
-run Sinatra::Application
+$:.unshift File.join(File.dirname(__FILE__), "lib")
 
+require './resume'
+run Sinatra::Application

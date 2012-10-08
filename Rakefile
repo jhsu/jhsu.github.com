@@ -3,48 +3,9 @@ require 'fileutils'
 
 task :default => ['test']
 
-GEM_NAME = "danmayer-resume"
-
 desc "run sintra server locally"
 task :run do
   exec "ruby resume.rb"
-end
-
-begin
-  require 'jeweler'
-  Jeweler::Tasks.new do |gemspec|
-    gemspec.name = GEM_NAME
-    gemspec.summary = "Resume gem"
-    gemspec.description = "A gem for Dan Mayer's resume"
-    gemspec.email = "dan@mayerdan.com"
-    gemspec.homepage = "http://github.com/danmayer/Resume"
-    gemspec.authors = ["Dan Mayer"]
-    gemspec.executables = [GEM_NAME]
-    gemspec.add_development_dependency "jeweler"
-    gemspec.add_dependency "main"
-    gemspec.add_dependency "maruku"
-    gemspec.add_dependency "sinatra", '~> 1.0'
-    gemspec.add_dependency "erubis"
-    gemspec.add_dependency 'less'
-    gemspec.add_dependency 'launchy'
-    gemspec.add_dependency 'rdiscount'
-  end
-  Jeweler::GemcutterTasks.new
-rescue LoadError
-  puts "Jeweler not available. Install it with: gem install jeweler"
-end
-
-task :build => [:generate_exe]
-
-desc "generate the gem executable"
-task :generate_exe do
-  puts "making bin folder if it doesn't exist"
-  bin_folder = File.join(File.dirname(__FILE__), 'bin')
-  FileUtils.mkdir_p(bin_folder) unless File.exists?(bin_folder)
-  puts "copying executable from template"
-  `cp lib/resume_exe bin/#{GEM_NAME}`
-  puts "giving new file chmod +x"
-  `chmod o+x bin/#{GEM_NAME}`
 end
 
 desc "run all tests"
@@ -56,14 +17,14 @@ end
 namespace :test do
   desc "run rack tests"
   Rake::TestTask.new(:rack) do |t|
-    t.libs << "test"
+    t.libs << "test" << "lib" << File.expand_path(File.dirname(__FILE__))
     t.pattern = "test/rack/**/*_test.rb"
     t.verbose = true
   end
 
   desc "run unit tests"
   Rake::TestTask.new(:unit) do |t|
-    t.libs << "test"
+    t.libs << "test" << "lib" << File.expand_path(File.dirname(__FILE__))
     t.pattern = "test/unit/**/*_test.rb"
     t.verbose = true
   end
