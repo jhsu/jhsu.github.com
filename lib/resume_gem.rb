@@ -43,12 +43,14 @@ class Resume
     #root_path = File.join(base,root_path)
     #FileUtils.mkdir_p root_path unless File.exists?(root_path)
  
-    css = Less::Engine.new(File.new(File.join(base,"views/style.less"))).to_css
-    tmp_css = File.join(root_path,'style.css')
+    parser = Less::Parser.new(:paths => [File.join(base, "views")], :filename => "style.less")
+    tree = parser.parse(File.read('./views/style.less'))
+    css = tree.to_css
+    tmp_css = File.join(root_path, 'style.css')
     File.open(tmp_css, 'w') {|f| f.write(css) }
 
-    tmp_file = File.join(root_path,'index.html')
-    File.open(tmp_file, 'w') {|f| f.write(self.html) }
+    tmp_file = File.join(root_path, 'index.html')
+    File.open(tmp_file, 'w') {|f| f.write(to_html) }
     tmp_file
   end
 

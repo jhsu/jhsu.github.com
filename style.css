@@ -1,4 +1,13 @@
-body { color: #000000; }
+/**
+ * Less based style sheet.
+ */
+body {
+  color: #000;
+}
+/**
+ * Fix float problem.
+ * http://www.positioniseverything.net/easyclearing.html
+ */
 .clearfix:after {
   content: ".";
   display: block;
@@ -11,13 +20,15 @@ body { color: #000000; }
   margin-left: auto;
   margin-right: auto;
   font-family: serif;
-  background-color: #f2f2f2;
+  background-color: #F2F2F2;
 }
 #footer {
   width: 800px;
   margin-left: auto;
   margin-right: auto;
   font-family: serif;
+  /*background-color: #F2F2F2;*/
+
 }
 #resume {
   width: 700px;
@@ -26,16 +37,15 @@ body { color: #000000; }
   font-family: serif;
 }
 #resume blockquote {
-  border-left: 5px solid #dddddd;
+  border-left: 5px solid #DDDDDD;
   margin: 1em 0;
   padding-left: 0.6em;
 }
-#resume a {
-  color: #4183c4;
-  text-decoration: none;
-}
+#resume a,
 #resume a:visited {
-  color: #4183c4;
+  color: #4183C4;
   text-decoration: none;
 }
-#resume a:hover { text-decoration: underline; }
+#resume a:hover {
+  text-decoration: underline;
+}
