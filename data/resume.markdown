@@ -4,6 +4,7 @@ Phone: (607) 279-5044
 Skype: [jhsu.joe](callto://jhsu.joe)  
 E-mail: [jhsu@josephhsu.com](mailto:jhsu@josephhsu.com)  
 Twitter: [@jhsu](http://twitter.com/jhsu)  
+Github: [jhsu](http://github.com/jhsu)  
 
 ## Experience
 
