@@ -3,6 +3,8 @@ class Resume::App < Sinatra::Base
     Resume.new
   end
 
+  set :public_folder, "public"
+
   get '/' do
     erb :index, :locals => { :title => "Resume", :resume => resume, :formats => true }
   end
@@ -23,5 +25,10 @@ class Resume::App < Sinatra::Base
     c = Gimli::Converter.new([file], Gimli::Config.new)
     c.convert!
     File.read("./#{file.name}.pdf")
+  end
+
+  get '/:filename.:ext' do
+    content_type params[:ext]
+    File.read(File.join(File.dirname(__FILE__), "../../#{params[:filename]}.#{params[:ext]}"))
   end
 end
