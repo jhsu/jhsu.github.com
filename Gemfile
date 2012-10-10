@@ -6,12 +6,12 @@ gem 'therubyracer'
 
 gem 'less'
 gem 'sinatra'
+gem 'gimli'
 gem 'github-markup'
 gem 'rdiscount'
 gem 'maruku'
 
 gem 'wkhtmltopdf-binary'
-gem 'erubis'
 
 group :test do
   gem 'rack'

@@ -5,11 +5,14 @@ require 'rubygems'
 require 'bundler'
 Bundler.require(:default)
 
-require 'github/markup'
+require 'resume_gem'
+
+def resume
+  Resume.new
+end
 
 get '/' do
-   resume = GitHub::Markup.render('resume.md', resume_data)
-   erb :index, :locals => { :title => "Resume", :resume => resume, :formats => true }
+  erb :index, :locals => { :title => "Resume", :resume => resume, :formats => true }
 end
 
 get '/style.css' do
@@ -19,28 +22,21 @@ end
 
 get '/latex' do
   content_type 'application/x-latex'
-  doc = Maruku.new(resume_data)
+  doc = Maruku.new(resume.raw)
   doc.to_latex_document
 end
 
 get '/markdown' do
-  content_type 'text/plain'
-  resume_data
+  content_type 'text/x-markdown; charset=UTF-8'
+  resume.raw
 end
 
-# note this only works if pdflatex is installed which is part of most LaTeX packages, but doesn't work on Heroku
-# TODO if this ever works on heroku clean it up and add caching
 get '/pdf' do
-  # content_type 'application/x-latex'
-  # pdf_file = 'tmp/resume.pdf'
-  # latex_file = 'tmp/resume.tex'
-
-  # return File.read(pdf_file) if File.exists?(pdf_file)
-  # doc = Maruku.new(resume_data)
-  # tex = doc.to_latex_document
-  # File.open(latex_file, 'w') {|f| f.write(tex) }
-  # `cd tmp && pdflatex resume.tex -interaction=nonstopmode` #'
-  # File.read(pdf_file)
+  content_type 'application/pdf'
+  file = Gimli::MarkupFile.new(resume.file_path)
+  c = Gimli::Converter.new([file], Gimli::Config.new)
+  c.convert!
+  File.read("./#{file.name}.pdf")
 end
 
 def resume_data

@@ -6,11 +6,11 @@
 <body>
    <% if defined? formats && formats %>
    <div id='formats'>
-     Formats: <a href="/">HTML</a> | <a href='latex'>LaTeX</a> | <a href='markdown'>Markdown</a>
+     Formats: <a href="/">HTML</a> | <a href='/pdf'>PDF</a> | <a href='/markdown'>Markdown</a>
    </div>
    <% end %>
    <div id="resume">
-      <%= resume %>
+      <%= resume.to_html %>
    </div>
    </br>
    <div id='footer'>

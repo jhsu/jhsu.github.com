@@ -2,27 +2,23 @@ require 'rubygems'
 require 'bundler'
 Bundler.require(:default)
 
+require 'github/markup'
+
 class Resume
 
-  def initialize(resume_data = 'resume.yml', resume_content = 'resume.md')
-    base = File.join(File.dirname(__FILE__),'..','data')
-    @resume = resume_data.is_a?(String) ? YAML::load_file(File.join(base,resume_data)) : resume_data
-    @resume_content = resume_content.is_a?(String) ? File.read(File.join(base,resume_content)) : resume_content
+  class << self
+    attr_accessor :data_dir
+  end
+  @data_dir ||= File.expand_path(File.join(File.dirname(__FILE__), "../data"))
+
+  def initialize(resume_file = 'resume.markdown')
+    @resume_file = resume_file
+    @resume_file_path = File.expand_path(File.join(self.class.data_dir, resume_file))
+    @resume_content = File.read(@resume_file_path)
   end
 
-  def mission_statement
-    @resume['mission_statement']
-  end
-
-  def contact_information
-    contact_info = @resume['contact_information']
-    contact_info += "\nresume url: #{@resume['resume_url']}" if @resume['resume_url']
-    contact_info
-  end
-
-  def open_resume_site
-    url = @resume['resume_url']
-    Launchy::Browser.new.visit(url)
+  def file_path
+    @resume_file_path
   end
 
   def text
@@ -34,12 +30,12 @@ class Resume
     doc.to_latex_document
   end
 
-  def html
-    title = "Dan Mayer's Resume"
-    base = File.join(File.dirname(__FILE__),'..')
-    resume = RDiscount.new(@resume_content, :smart).to_html
-    eruby = Erubis::Eruby.new(File.read(File.join(base,'./views/index.erubis')))
-    eruby.result(binding())    
+  def raw
+    @resume_content
+  end
+
+  def to_html
+    GitHub::Markup.render(@resume_file, raw)
   end
 
   def write_html_and_css_to_disk(root_path = '/tmp')
