@@ -39,12 +39,12 @@ class Resume
   end
 
   def write_html_and_css_to_disk(root_path = '/tmp')
-    base = File.join(File.dirname(__FILE__),'..')
+    base = File.join(File.dirname(__FILE__), 'resume/views')
     #root_path = File.join(base,root_path)
     #FileUtils.mkdir_p root_path unless File.exists?(root_path)
  
     parser = Less::Parser.new(:paths => [File.join(base, "views")], :filename => "style.less")
-    tree = parser.parse(File.read('./views/style.less'))
+    tree = parser.parse(File.read(File.join(base, 'style.less')))
     css = tree.to_css
     tmp_css = File.join(root_path, 'style.css')
     File.open(tmp_css, 'w') {|f| f.write(css) }
@@ -52,7 +52,7 @@ class Resume
     resume = self
     title = "Resume"
 
-    template = ERB.new(File.read(File.join(base, 'views/index.erb')))
+    template = ERB.new(File.read(File.join(base, 'index.erb')))
     html = template.result(binding)
 
     tmp_file = File.join(root_path, 'index.html')
