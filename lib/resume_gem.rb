@@ -49,8 +49,14 @@ class Resume
     tmp_css = File.join(root_path, 'style.css')
     File.open(tmp_css, 'w') {|f| f.write(css) }
 
+    resume = self
+    title = "Resume"
+
+    template = ERB.new(File.read(File.join(base, 'views/index.erb')))
+    html = template.result(binding)
+
     tmp_file = File.join(root_path, 'index.html')
-    File.open(tmp_file, 'w') {|f| f.write(to_html) }
+    File.open(tmp_file, 'w') {|f| f.write(html) }
     tmp_file
   end
 

@@ -20,18 +20,12 @@ get '/style.css' do
    less :style
 end
 
-get '/latex' do
-  content_type 'application/x-latex'
-  doc = Maruku.new(resume.raw)
-  doc.to_latex_document
-end
-
-get '/markdown' do
+get '/resume.markdown' do
   content_type 'text/x-markdown; charset=UTF-8'
   resume.raw
 end
 
-get '/pdf' do
+get '/resume.pdf' do
   content_type 'application/pdf'
   file = Gimli::MarkupFile.new(resume.file_path)
   c = Gimli::Converter.new([file], Gimli::Config.new)

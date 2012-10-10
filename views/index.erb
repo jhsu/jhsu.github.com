@@ -4,17 +4,16 @@
    <link href="style.css" media="screen" rel="stylesheet" type="text/css" />
 </head>
 <body>
-   <% if defined? formats && formats %>
    <div id='formats'>
-     Formats: <a href="/">HTML</a> | <a href='/pdf'>PDF</a> | <a href='/markdown'>Markdown</a>
+     Formats: <a href="/">HTML</a> | <a href='./resume.pdf'>PDF</a> | <a href='/resume.markdown'>Markdown</a>
    </div>
-   <% end %>
+
    <div id="resume">
       <%= resume.to_html %>
    </div>
-   </br>
+
    <div id='footer'>
-     This resume is Ruby, powered by <a href="http://github.com/danmayer/Resume">Ruby Resume</a>.
+     This resume is Ruby, powered by a fork of <a href="http://github.com/danmayer/Resume">Ruby Resume</a>.
    </div>
 </body>
 </html>
