@@ -1,61 +1,130 @@
+<!DOCTYPE html>
 <html>
-<head>
-   <title>Resume</title>
-   <link href="style.css" media="screen" rel="stylesheet" type="text/css" />
-   <link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
-</head>
-<body>
-   <div id='formats'>
-     Formats: <a href="/">HTML</a> | <a href='./resume.pdf'>PDF</a> | <a href='/resume.markdown'>Markdown</a>
-   </div>
+  <head>
+    <link href="./style.css" rel="stylesheet" type="text/css" />
+    <title>Joseph Hsu | Resume</title>
+  </head>
+  <body>
+    <div id="content">
+    <section id="whoami">
+      <article>
+        <h2>Joseph <abbr title="/shoe/">Hsu</abbr></h2>
+        <p>
+          <strong>Web Developer</strong>.
+        </p>
+      </article>
+    </section>
+    <section id="contact">
+      <article>
+        <h2>Contact</h2>
+        <p class="code">
+          Email:   jhsu@josephhsu.com<br />
+          Twitter: <a href="http://twitter.com/jhsu">@jhsu</a><br />
+          Skype:   <a href="skype:jhsu.joe?add">jhsu.joe</a><br />
+          Github:  <a href="http://github.com/jhsu">github.com/jhsu</a>
+        </p>
+      </article>
+    </section>
+    <section id="experience">
+      <article>
+        <h2>Experience</h2>
+        <h3>Academic Software Plus</h3>
+        <p>Jaunuary 2010 - Present, Web Developer</p>
+        <div class="expandable">
+        
+        <p><strong>Developing features from spec to production.</strong> Was part of our initial team of about 5 developers, migrating legacy products from the desktop to Ruby on Rails web applications. Involved in major decisions from development to deployment.</p>
+        
+        <p><strong>Slow processes are painful.</strong> In an <abbr title="Extract Translate Load">ETL</abbr> process, I was able to refactor the extraction process for easier use as a script instead of a rake task with flag options and increase performance by two-fold.</p>
+        
+        <p><strong>Active mentor.</strong> Actively work with junior developers to establish good practices, approach problems and care about their development environment.</p>
+        
+        <p><strong>Pursue proposed initiatives.</strong> Found pain points in our deployment process and migrated from our previous deployment scripts (bdsm, sm-deploy) to a set of capistrano recipes.  Created an IRC bot to help with some daily tasks, such as leaving memos for coworkers, linking to tickets in our ticket tracker and some fun things such as tracking who is going out for lunch. Implemented Tuesday Talks, where each week, someone gives a topic of interest, from TDD to things about postgres you might not have known.</p>
+          
+          <p><strong>Commit statistics in our main rails application:</strong> 2,701 commits / <span class="green">75,233 ++</span> / <span class="red">85,875 --</span></p>
+          <p>Received <strong>2011 Employee of the year</strong>.</p>
 
-   <div id="resume">
-      <h1>Joseph Hsu</h1>
+          
+          <h4>Technologies</h4>
+          <ul class="tags">
+            <li>Ruby</li>
+            <li>Ruby on Rails</li>
+            <li>Postgres</li>
+            <li>Redis &amp; Resque</li>
+            <li>git</li>
+          </ul>
+         </div>
 
-<p>Phone: (607) 279-5044<br>
-Skype: <a href="callto://jhsu.joe">jhsu.joe</a><br>
-E-mail: <a href="mailto:jhsu@josephhsu.com">jhsu@josephhsu.com</a><br>
-Twitter: <a href="http://twitter.com/jhsu">@jhsu</a><br>
-Github: <a href="http://github.com/jhsu">jhsu</a>  </p>
-
-<h2>Experience</h2>
-
-<h3>Academic Software Plus</h3>
-
-<p><strong>2009 - Present, Web Developer</strong></p>
-
-<ul>
-<li>Launched large Rails applications</li>
-<li>Migrated applications from Rails 2.3 to 3.1 (along with upgrade to Ruby 1.9 from 1.8)</li>
-<li>created deployment scripts for multiple applications and environments</li>
-<li>Do-er of everything</li>
-<li>Wheel around the office a lot on a high-speed swivel chair</li>
-<li>Pair-programming buddy (but not <a href="https://bitbucket.org/spooning/">spooning</a>)</li>
-</ul>
-
-<h3>Viralogy</h3>
-
-<p><strong>2008 - 2009, Design and Development</strong></p>
-
-<p>Working with a startup and with some very visionary people. </p>
-
-<h2>Education</h2>
-
-<p><strong>University at Buffalo, SUNY</strong>. Bachelor of Arts <em>Communcation</em>, 2005-2010</p>
-
-<h2>Skillset</h2>
-
-<ul>
-<li>Ruby / RubyOnRails</li>
-<li>frontend HTML &amp; CSS</li>
-<li>application deployment</li>
-<li>Linux systems (Archlinux / Ubuntu)</li>
-</ul>
-
-   </div>
-
-   <div id='footer'>
-     This resume is Ruby, powered by a fork of <a href="http://github.com/danmayer/Resume">Ruby Resume</a>.
-   </div>
-</body>
+        <h3>Academic Software Plus</h3>
+        <p>August 2009 - January 2010, Web Developer Intern</p>
+        <div class="expandable">
+          <p>
+            Worked on an existing Rails application dealing with surveys and a lottery system to assign people to sites.
+          </p>
+          <p>
+            Heavily involved in the creation of the company's current rails app product line.
+          </p>
+          <p>Paired with senior developers and was able to quickly work on my own</p>
+        </div>
+        
+        
+        
+        <h3>Viralogy</h3>
+        <p>2008 - 2009, Web Designer and Developer</p>
+        <div class="expandable">   
+        <p><strong>Designed several pages from mocks to production.</strong> Iterated several designs for the front page and dashboard views. Integrated the designs to our php (codeigniter) application.</p>
+        <p>Worked on backend code for searching blogs on the site</p>
+         <h4>Technologies</h4>
+          <ul class="tags">
+            <li>PHP</li>
+            <li>CodeIgniter</li>
+            <li>Mysql</li>
+            <li>SVN</li>
+          </ul>
+        </div>
+       </article>
+    </section>
+    
+    <section id="education">
+      <article>
+        <h2>Education</h2> 
+        <p>
+          <strong>University at Buffalo, SUNY.</strong> Bachelor of Arts in Communcation, 2005-2010
+        </p>
+      </article>
+    </section>
+    
+    <section id="skills">
+      <article>
+        <h2>Skills</h2>
+        <ul>
+          <li>Ruby</li>
+          <li>Web Frameworks (such as Ruby on Rails and Sinatra) </li>
+          <li>Capistrano deployments</li>
+          <li>Node.js (mainly for an irc bot using github/hubot)</li>
+          <li>Front-end: HTML, CSS and Javascript</li>
+          <li>D3.js (<a href="http://bl.ocks.org/1885497" title="sparkline d3.js example">simple sparkline</a>)</li>
+          <li>Linux (mainly Archlinux and Ubuntu)</li>
+        </ul>
+      </article>
+    </section>
+    
+    <section id="extra">
+      <article>
+        <h2>Extra</h2>
+        <p>
+          <strong>Rails Rumble,</strong> 2012 entrant <a href="http://railsrumble.com/entries/364-wny-ruby-represent">"Bring-a-Thing"</a> and 2009 entrant.
+        </p>
+        <p>
+          <strong>WNY Ruby meetup,</strong> organizer.
+        </p>
+        <p>
+          <strong>RaspberryPi,</strong> Rabbit Cam using Raspbian distribution, Motion and a custom ruby twitter updater. 
+        </p>
+        <p>
+          <strong>Personal Blog,</strong> <a href="http://josephhsu.com" title="Blog">josephhsu.com</a>.
+        </p>
+      </article>
+    </section>
+    </div>
+  </body>
 </html>

@@ -1,36 +1,109 @@
-/**
- * Less based style sheet.
- */
-body {
-  color: #000;
-  background: url('./cream_dust.png');
-  font-family: 'Rokkitt', serif;
+html, body { padding:0; margin: 0; margin-bottom:}
+
+body {  
+  font-family: Verdana, sans-serif;
+  background-color: #ececec;
 }
-#formats,
-#footer {
-  background: #fff;
-  width: 800px;
-  margin: 0 auto;
-  padding: 10px;
+
+#content {
+  padding-bottom: 100px;
+  background-color: #fff;
+  background: #fff url('http://dl.dropbox.com/u/114389/pics/sketch_self.jpg') right top no-repeat;
+  margin: 50px auto;
+  border-top: 8px solid #1AA292;
 }
-#resume {
-  width: 700px;
-  margin-left: auto;
-  margin-right: auto;
+
+@media only screen 
+and (min-width : 1224px) {
+    #content { margin-right: auto; margin-left: auto; width: 800px;}
+  #contact { width: 500px;}
 }
-#resume ul li {
-  line-height: 1.5em;
+
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+    #content {width: 100%px; margin: 0;}
 }
-#resume blockquote {
-  border-left: 5px solid #DDDDDD;
-  margin: 1em 0;
-  padding-left: 0.6em;
+
+abbr { cursor: help;
+  border-bottom: 1px dotted #ccc; 
 }
-#resume a,
-#resume a:visited {
-  color: #4183C4;
+
+h1, h2 {
+  color: #1AA292;
+  text-shadow: 1px 1px 0px #bbb;
+}
+
+strong {
+}
+
+a {
   text-decoration: none;
+  border-bottom: 1px dotted #DCB502;
+  color: #16B81C;
 }
-#resume a:hover {
-  text-decoration: underline;
+
+section {
+  color: #060606;
+  padding: 1em;
 }
+
+ul li {
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+p {
+  line-height: 1.6;
+  font-size: 14px;
+  max-width: 800px;
+}
+
+#whoami {
+  /* background: url("http://distilleryimage0.s3.amazonaws.com/cc63432cd35e11e19f481231380fd1fd_7.jpg") no-repeat left top fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  */
+  min-height: auto;
+}
+
+#contact {
+  border: 1px dashed #888;
+  margin-left: -1em;
+  background-color: rgba(255,255,255,0.5);
+}
+
+#contact article {
+  margin-left: 1em;
+}
+
+#contact .code {
+  line-height: 1.4;
+  font-family: monospace;
+}
+
+#experience {
+  /*
+  background: url("http://dl.dropbox.com/u/114389/pics/boat_blur.jpg") no-repeat left top fixed;
+  */
+    -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#experience h3 { border-left: 8px solid #ececec; padding-left: 8px; margin-left: -16px; }
+
+#experience div.expandable {
+  /* display: none;
+  overflow: hidden; */
+}
+
+#education {
+
+}
+
+.green {color: green;}
+.red {color: red;}
